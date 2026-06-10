@@ -32,7 +32,11 @@ const TOPICS = [
       }
     ],
     videoUrl: 'https://www.youtube.com/embed/bE6t4hWkqEs',
-    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school'
+    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school',
+    resources: [
+      { title: 'Geld verdienen via studentenjobs', url: 'https://www.vlaanderen.be/wetgeving/studentenjob' },
+      { title: 'Hoe werken belastingen?', url: 'https://www.wikifin.be/nl/lesplein/wat-zijn-belastingen' }
+    ]
   },
   {
     id: 'omgaan-met-geld',
@@ -68,7 +72,11 @@ const TOPICS = [
       }
     ],
     videoUrl: 'https://www.youtube.com/embed/L9WQjCccv8k',
-    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school'
+    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school',
+    resources: [
+      { title: 'Budget maken in stappen', url: 'https://www.wikifin.be/nl/lesplein/budgetteren' },
+      { title: 'Behoeften vs. Wensen', url: 'https://www.wikifin.be/nl/lesplein/behoeften-en-wensen' }
+    ]
   },
   {
     id: 'sparen',
@@ -99,7 +107,11 @@ const TOPICS = [
       }
     ],
     videoUrl: 'https://www.youtube.com/embed/L9WQjCccv8k',
-    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school'
+    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school',
+    resources: [
+      { title: 'Spaardoelen stellen', url: 'https://www.wikifin.be/nl/lesplein/sparen' },
+      { title: 'Automatisch sparen', url: 'https://www.wikifin.be/nl/lesplein/automatisch-sparen' }
+    ]
   },
   {
     id: 'beleggen',
@@ -130,7 +142,11 @@ const TOPICS = [
       }
     ],
     videoUrl: 'https://www.youtube.com/embed/FLKJ9Qz5u5w',
-    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school'
+    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school',
+    resources: [
+      { title: 'Beleggen voor beginners', url: 'https://www.wikifin.be/nl/lesplein/beleggen' },
+      { title: 'Risico en rendement', url: 'https://www.wikifin.be/nl/lesplein/risico-en-rendement' }
+    ]
   }
 ];
 
@@ -453,6 +469,19 @@ function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores })
             {hasMaxScore ? 'Maximumscore behaald.' : 'Behaal de maximumscore om deze les af te werken.'}
           </p>
         </div>
+      </section>
+
+      <section className="content-card resources-card">
+        <h2>📚 Verder lezen</h2>
+        <ul className="resources-list">
+          {topic.resources && topic.resources.map((resource) => (
+            <li key={resource.title}>
+              <a href={resource.url} target="_blank" rel="noreferrer">
+                {resource.title} ↗
+              </a>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="topic-nav">

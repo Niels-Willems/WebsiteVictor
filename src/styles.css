@@ -494,6 +494,33 @@ a {
   box-shadow: var(--shadow-soft);
 }
 
+.resources-card {
+  background: linear-gradient(180deg, #fffde8, #f0fff9);
+}
+
+.resources-list {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+  display: grid;
+  gap: 0.45rem;
+  list-style: none;
+}
+
+.resources-list li {
+  padding-left: 0;
+}
+
+.resources-list a {
+  color: var(--primary);
+  font-weight: 600;
+  transition: color 200ms ease;
+}
+
+.resources-list a:hover {
+  color: var(--secondary);
+  text-decoration: underline;
+}
+
 .content-card h2 {
   margin: 0 0 0.9rem;
   font-family: 'Bricolage Grotesque', sans-serif;
