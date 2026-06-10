@@ -134,8 +134,45 @@ const TOPICS = [
   }
 ];
 
-function HomePage({ completedSet }) {
+function shuffleAnswers(answers, correctIndex) {
+  const items = answers.map((answer, originalIndex) => ({ answer, originalIndex }));
+
+  for (let index = items.length - 1; index > 0; index -= 1) {
+    const swapIndex = Math.floor(Math.random() * (index + 1));
+    [items[index], items[swapIndex]] = [items[swapIndex], items[index]];
+  }
+
+  const correctPosition = items.findIndex((item) => item.originalIndex === correctIndex);
+  if (correctPosition === 1) {
+    const swapIndex = items.length > 2 ? 2 : 0;
+    [items[correctPosition], items[swapIndex]] = [items[swapIndex], items[correctPosition]];
+  }
+
+  return items;
+}
+
+function buildShuffledQuiz(topic) {
+  return topic.quiz.map((question) => {
+    return {
+      ...question,
+      shuffledAnswers: shuffleAnswers(question.answers, question.correct)
+    };
+  });
+}
+
+function getMaxScore(topic) {
+  return topic.quiz.length;
+}
+
+function getTotalQuestionCount() {
+  return TOPICS.reduce((total, topic) => total + getMaxScore(topic), 0);
+}
+
+function HomePage({ completedSet, quizScores, onResetProgress }) {
   const completedPercent = Math.round((completedSet.size / TOPICS.length) * 100);
+  const totalBestScore = TOPICS.reduce((total, topic) => total + (quizScores[topic.id] ?? 0), 0);
+  const totalQuestions = getTotalQuestionCount();
+  const perfectQuizCount = TOPICS.filter((topic) => (quizScores[topic.id] ?? 0) === getMaxScore(topic)).length;
 
   return (
     <main className="page page-home">
@@ -157,12 +194,53 @@ function HomePage({ completedSet }) {
         </div>
       </section>
 
+      <section className="classroom-panel" aria-label="Klasoverzicht">
+        <div>
+          <p className="section-kicker">Klasoverzicht</p>
+          <h2>Voortgang in een oogopslag</h2>
+        </div>
+        <div className="stats-grid">
+          <div className="stat-card">
+            <span>{completedSet.size}/{TOPICS.length}</span>
+            <p>Afgewerkte lessen</p>
+          </div>
+          <div className="stat-card">
+            <span>{totalBestScore}/{totalQuestions}</span>
+            <p>Beste quizscore</p>
+          </div>
+          <div className="stat-card">
+            <span>{perfectQuizCount}</span>
+            <p>Perfecte quizzes</p>
+          </div>
+        </div>
+        <div className="classroom-actions">
+          <button className="btn btn-secondary" onClick={() => window.print()}>
+            Print voortgang
+          </button>
+          <button className="btn btn-quiet" onClick={onResetProgress}>
+            Reset voortgang
+          </button>
+        </div>
+      </section>
+
       <section className="topics-grid" aria-label="Onderwerpen">
         {TOPICS.map((topic) => (
           <article className={`topic-card ${topic.id}`} key={topic.id}>
-            <p className="topic-icon" aria-hidden>
-              {topic.icon}
-            </p>
+            {(() => {
+              const topicScore = quizScores[topic.id] ?? 0;
+              const maxScore = getMaxScore(topic);
+
+              return (
+                <div className="topic-card-top">
+                  <p className="topic-icon" aria-hidden>
+                    {topic.icon}
+                  </p>
+                  <span className={topicScore === maxScore ? 'score-pill perfect' : 'score-pill'}>
+                    Score: {topicScore}/{maxScore}
+                  </span>
+                </div>
+              );
+            })()}
             <h3>{topic.title}</h3>
             <p>{topic.subtitle}</p>
             <div className="topic-card-footer">
@@ -182,6 +260,9 @@ function HomePage({ completedSet }) {
             <li key={topic.id} className={completedSet.has(topic.id) ? 'done' : 'open'}>
               <span>{completedSet.has(topic.id) ? '✅' : '🔄'}</span>
               <Link to={`/topic/${topic.id}`}>{topic.title}</Link>
+              <span className="map-score">
+                {quizScores[topic.id] ?? 0}/{getMaxScore(topic)}
+              </span>
             </li>
           ))}
         </ol>
@@ -190,7 +271,7 @@ function HomePage({ completedSet }) {
   );
 }
 
-function TopicPage({ completedSet, setCompletedSet }) {
+function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores }) {
   const { topicId } = useParams();
   const navigate = useNavigate();
   const topic = TOPICS.find((item) => item.id === topicId);
@@ -203,12 +284,14 @@ function TopicPage({ completedSet, setCompletedSet }) {
 
   const [practiceChoice, setPracticeChoice] = useState(null);
   const [quizAnswers, setQuizAnswers] = useState({});
+  const [shuffledQuiz, setShuffledQuiz] = useState(() => buildShuffledQuiz(topic));
 
   useEffect(() => {
     // clear answers when switching topics so selections don't carry over
     setPracticeChoice(null);
     setQuizAnswers({});
-  }, [topicId]);
+    setShuffledQuiz(buildShuffledQuiz(topic));
+  }, [topic, topicId]);
 
   const score = useMemo(() => {
     return topic.quiz.reduce((total, q, qIndex) => {
@@ -217,8 +300,35 @@ function TopicPage({ completedSet, setCompletedSet }) {
   }, [quizAnswers, topic.quiz]);
 
   const [showConfetti, setShowConfetti] = useState(false);
+  const bestScore = quizScores[topic.id] ?? 0;
+  const maxScore = getMaxScore(topic);
+  const hasMaxScore = Math.max(score, bestScore) === maxScore;
+
+  const reshuffleQuiz = () => {
+    setQuizAnswers({});
+    setShuffledQuiz(buildShuffledQuiz(topic));
+  };
+
+  const updateQuizAnswer = (qIndex, aIndex) => {
+    const nextAnswers = { ...quizAnswers, [qIndex]: aIndex };
+    const nextScore = topic.quiz.reduce((total, q, index) => {
+      return total + (nextAnswers[index] === q.correct ? 1 : 0);
+    }, 0);
+
+    setQuizAnswers(nextAnswers);
+    setQuizScores((prevScores) => {
+      const nextScores = {
+        ...prevScores,
+        [topic.id]: Math.max(prevScores[topic.id] ?? 0, nextScore)
+      };
+      localStorage.setItem('quizScores', JSON.stringify(nextScores));
+      return nextScores;
+    });
+  };
 
   const onComplete = () => {
+    if (!hasMaxScore) return;
+
     const nextSet = new Set(completedSet);
     nextSet.add(topic.id);
     setCompletedSet(nextSet);
@@ -239,6 +349,21 @@ function TopicPage({ completedSet, setCompletedSet }) {
           <p>{topic.subtitle}</p>
         </div>
       </header>
+
+      <section className="lesson-status" aria-label="Lesstatus">
+        <div>
+          <span className="status-label">Huidige score</span>
+          <strong>{score}/{maxScore}</strong>
+        </div>
+        <div>
+          <span className="status-label">Beste score</span>
+          <strong>{bestScore}/{maxScore}</strong>
+        </div>
+        <div>
+          <span className="status-label">Voorwaarde</span>
+          <strong>{hasMaxScore ? 'Klaar om af te werken' : `${maxScore}/${maxScore} nodig`}</strong>
+        </div>
+      </section>
 
       <section className="content-card">
         <h2>Video</h2>
@@ -271,11 +396,16 @@ function TopicPage({ completedSet, setCompletedSet }) {
 
       <section className="content-card">
         <h2>Praktijkvoorbeeld</h2>
-        <p>{topic.practice.caseText}</p>
-        <div className="options-grid">
+        <p className="quiz-prompt">{topic.practice.caseText}</p>
+        <div className="options-grid practice-options">
           {topic.practice.options.map((option, idx) => (
-            <button key={option} className="option" onClick={() => setPracticeChoice(idx)}>
-              {String.fromCharCode(65 + idx)}. {option}
+            <button
+              key={option}
+              className={`option ${practiceChoice === idx ? 'selected' : ''}`}
+              onClick={() => setPracticeChoice(idx)}
+            >
+              <span className="option-letter">{String.fromCharCode(65 + idx)}</span>
+              <span>{option}</span>
             </button>
           ))}
         </div>
@@ -288,35 +418,49 @@ function TopicPage({ completedSet, setCompletedSet }) {
       </section>
 
       <section className="content-card">
-        <h2>Test jezelf</h2>
-        {topic.quiz.map((q, qIndex) => (
-          <div key={q.question} className="quiz-item">
-            <h3>
-              {qIndex + 1}. {q.question}
-            </h3>
-            <div className="options-grid">
-              {q.answers.map((answer, aIndex) => (
-                <button
-                  key={answer}
-                  className={`option ${quizAnswers[qIndex] === aIndex ? 'selected' : ''}`}
-                  onClick={() => setQuizAnswers((prevAnswers) => ({ ...prevAnswers, [qIndex]: aIndex }))}
-                >
-                  {String.fromCharCode(65 + aIndex)}. {answer}
-                </button>
-              ))}
+        <div className="section-title-row">
+          <h2>Test jezelf</h2>
+          <button className="btn btn-secondary btn-small" onClick={reshuffleQuiz}>
+            Schud antwoorden
+          </button>
+        </div>
+        <div className="quiz-list">
+          {shuffledQuiz.map((q, qIndex) => (
+            <div key={q.question} className="quiz-item">
+              <h3>
+                <span>{qIndex + 1}</span>
+                {q.question}
+              </h3>
+              <div className="options-grid">
+                {q.shuffledAnswers.map(({ answer, originalIndex }, optionIndex) => (
+                  <button
+                    key={answer}
+                    className={`option ${quizAnswers[qIndex] === originalIndex ? 'selected' : ''}`}
+                    onClick={() => updateQuizAnswer(qIndex, originalIndex)}
+                  >
+                    <span className="option-letter">{String.fromCharCode(65 + optionIndex)}</span>
+                    <span>{answer}</span>
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
-        <p className="score">Score: {score}/{topic.quiz.length}</p>
+        <div className="quiz-summary">
+          <p className="score">Score: {score}/{maxScore}</p>
+          <p className={hasMaxScore ? 'quiz-note ready' : 'quiz-note'}>
+            {hasMaxScore ? 'Maximumscore behaald.' : 'Behaal de maximumscore om deze les af te werken.'}
+          </p>
+        </div>
       </section>
 
       <section className="topic-nav">
         <button className="btn btn-secondary" onClick={() => navigate(prev ? `/topic/${prev.id}` : '/')}>
           {prev ? `Vorige: ${prev.title}` : 'Terug naar home'}
         </button>
-        <button className="btn btn-primary" onClick={onComplete}>
-          Markeer als afgewerkt
+        <button className="btn btn-primary" onClick={onComplete} disabled={!hasMaxScore}>
+          {hasMaxScore ? 'Markeer als afgewerkt' : `Haal eerst ${maxScore}/${maxScore}`}
         </button>
         <button className="btn btn-secondary" onClick={() => navigate(next ? `/topic/${next.id}` : '/')}>
           {next ? `Volgende: ${next.title}` : 'Naar home'}
@@ -336,13 +480,53 @@ function App() {
       return new Set();
     }
   });
+  const [quizScores, setQuizScores] = useState(() => {
+    try {
+      const raw = localStorage.getItem('quizScores');
+      return raw ? JSON.parse(raw) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  useEffect(() => {
+    const validCompletedTopics = [...completedSet].filter((topicId) => {
+      const topic = TOPICS.find((item) => item.id === topicId);
+      return topic && (quizScores[topicId] ?? 0) === getMaxScore(topic);
+    });
+
+    if (validCompletedTopics.length !== completedSet.size) {
+      const nextSet = new Set(validCompletedTopics);
+      setCompletedSet(nextSet);
+      localStorage.setItem('completedTopics', JSON.stringify(validCompletedTopics));
+    }
+  }, [completedSet, quizScores]);
+
+  const resetProgress = () => {
+    if (!window.confirm('Weet je zeker dat je alle voortgang wil resetten?')) return;
+
+    setCompletedSet(new Set());
+    setQuizScores({});
+    localStorage.removeItem('completedTopics');
+    localStorage.removeItem('quizScores');
+  };
 
   return (
     <Routes>
-      <Route path="/" element={<HomePage completedSet={completedSet} />} />
+      <Route
+        path="/"
+        element={<HomePage completedSet={completedSet} quizScores={quizScores} onResetProgress={resetProgress} />}
+      />
       <Route
         path="/topic/:topicId"
-        element={<TopicPage completedSet={completedSet} setCompletedSet={setCompletedSet} />}
+        element={
+          <TopicPage
+            completedSet={completedSet}
+            setCompletedSet={setCompletedSet}
+            quizScores={quizScores}
+            setQuizScores={setQuizScores}
+          />
+        }
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
