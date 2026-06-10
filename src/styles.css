@@ -1,16 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700&family=Space+Grotesk:wght@400;500;700&display=swap');
 
 :root {
-  --bg: #f5f3e7;
-  --surface: #fffaf0;
-  --ink: #1f2d2a;
-  --muted: #4f625d;
-  --primary: #0f766e;
-  --secondary: #f59e0b;
+  --bg: linear-gradient(180deg,#fffae6 0%, #f0fff6 100%);
+  --surface: #ffffff;
+  --ink: #052f2f;
+  --muted: #23605a;
+  --primary: #0ea5a0;
+  --secondary: #fb923c;
   --accent: #ef4444;
-  --good: #166534;
-  --bad: #991b1b;
-  --radius: 18px;
+  --good: #0f766e;
+  --bad: #b91c1c;
+  --radius: 22px;
+  --card-gap: 1rem;
+  --joy: #ffd6e0;
+  --joy-2: #e0f7ff;
 }
 
 * {
@@ -21,10 +24,7 @@ body {
   margin: 0;
   font-family: 'Space Grotesk', sans-serif;
   color: var(--ink);
-  background:
-    radial-gradient(circle at 15% 20%, rgba(245, 158, 11, 0.18), transparent 35%),
-    radial-gradient(circle at 85% 12%, rgba(15, 118, 110, 0.22), transparent 38%),
-    var(--bg);
+  background: var(--bg);
   min-height: 100vh;
 }
 
@@ -41,17 +41,18 @@ a {
 .hero {
   display: grid;
   grid-template-columns: 1.6fr 1fr;
-  gap: 1rem;
-  background: linear-gradient(130deg, #f59e0b 0%, #f8e7b5 47%, #c6f5ef 100%);
-  border-radius: var(--radius);
-  padding: 1.25rem;
-  border: 2px solid rgba(31, 45, 42, 0.15);
+  gap: var(--card-gap);
+  background: linear-gradient(135deg, #fff2b8 0%, #c8fff0 100%);
+  border-radius: calc(var(--radius) + 6px);
+  padding: 1.5rem;
+  border: 0;
+  box-shadow: 0 18px 40px rgba(14,165,160,0.08);
 }
 
 .hero-content h1 {
   margin: 0.25rem 0;
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.3rem);
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
 }
 
 .eyebrow {
@@ -67,9 +68,10 @@ a {
 }
 
 .hero-progress {
-  background: rgba(255, 255, 255, 0.72);
-  border-radius: var(--radius);
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.85));
+  border-radius: 14px;
   padding: 1rem;
+  text-align: center;
 }
 
 .progress-track {
@@ -95,12 +97,12 @@ a {
 }
 
 .topic-card {
-  background: var(--surface);
-  border: 2px solid rgba(31, 45, 42, 0.15);
-  border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: 0 8px 26px rgba(31, 45, 42, 0.08);
-  animation: cardIn 460ms ease both;
+  background: linear-gradient(180deg, #fff, #fffaf3);
+  border-radius: 18px;
+  padding: 1.1rem;
+  box-shadow: 0 10px 30px rgba(2,32,27,0.06);
+  animation: floatCard 1600ms ease-in-out infinite;
+  position: relative;
 }
 
 .topic-card h3 {
@@ -125,20 +127,20 @@ a {
 }
 
 .chip {
-  background: #d1fae5;
-  color: #14532d;
+  background: linear-gradient(90deg,#bbf7d0,#c7f9f4);
+  color: var(--good);
   border-radius: 999px;
-  padding: 0.2rem 0.55rem;
-  font-size: 0.9rem;
-  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  box-shadow: 0 6px 12px rgba(11,116,108,0.06);
 }
 
 .map {
   margin-top: 1rem;
-  background: var(--surface);
-  border: 2px solid rgba(31, 45, 42, 0.15);
-  border-radius: var(--radius);
-  padding: 1rem;
+  background: linear-gradient(180deg,#fff,#f8fff9);
+  border-radius: 14px;
+  padding: 0.9rem;
 }
 
 .map ol {
@@ -176,9 +178,9 @@ a {
 }
 
 .btn-primary {
-  background: var(--primary);
+  background: linear-gradient(90deg,var(--primary), #3bd2b6);
   color: #fff;
-  box-shadow: 0 6px 18px rgba(15, 118, 110, 0.25);
+  box-shadow: 0 12px 28px rgba(14,165,160,0.16);
 }
 
 .btn-secondary {
@@ -277,8 +279,8 @@ a {
 }
 
 .option.selected {
-  border-color: #f59e0b;
-  background: #fff2d9;
+  border-color: #60a5fa;
+  background: linear-gradient(90deg,#eaf6ff,#f0fbff);
 }
 
 .feedback {
@@ -303,6 +305,44 @@ a {
   display: grid;
   gap: 0.75rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* fun per-topic colors */
+.topic-card.geld-verdienen { background: linear-gradient(160deg,#fffbe6,#ffe7c2);} 
+.topic-card.omgaan-met-geld { background: linear-gradient(160deg,#e7f8ff,#e0f7f1);} 
+.topic-card.sparen { background: linear-gradient(160deg,#fff0f6,#ffe6f0);} 
+.topic-card.beleggen { background: linear-gradient(160deg,#f3fff0,#e9fff6);} 
+
+/* confetti */
+.confetti {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 9999;
+}
+.confetti-piece {
+  position: absolute;
+  width: 10px;
+  height: 16px;
+  opacity: 0.95;
+  transform-origin: center;
+  animation: confetti-fall 2800ms linear forwards;
+  border-radius: 3px;
+}
+
+@keyframes confetti-fall {
+  0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0.9; }
+}
+
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
 
 @keyframes cardIn {

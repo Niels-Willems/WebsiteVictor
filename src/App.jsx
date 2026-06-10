@@ -1,5 +1,6 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useEffect } from 'react';
 import { Link, Navigate, Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import Confetti from './Confetti.jsx';
 
 const TOPICS = [
   {
@@ -158,7 +159,7 @@ function HomePage({ completedSet }) {
 
       <section className="topics-grid" aria-label="Onderwerpen">
         {TOPICS.map((topic) => (
-          <article className="topic-card" key={topic.id}>
+          <article className={`topic-card ${topic.id}`} key={topic.id}>
             <p className="topic-icon" aria-hidden>
               {topic.icon}
             </p>
@@ -203,17 +204,26 @@ function TopicPage({ completedSet, setCompletedSet }) {
   const [practiceChoice, setPracticeChoice] = useState(null);
   const [quizAnswers, setQuizAnswers] = useState({});
 
+  useEffect(() => {
+    // clear answers when switching topics so selections don't carry over
+    setPracticeChoice(null);
+    setQuizAnswers({});
+  }, [topicId]);
+
   const score = useMemo(() => {
     return topic.quiz.reduce((total, q, qIndex) => {
       return total + (quizAnswers[qIndex] === q.correct ? 1 : 0);
     }, 0);
   }, [quizAnswers, topic.quiz]);
 
+  const [showConfetti, setShowConfetti] = useState(false);
+
   const onComplete = () => {
     const nextSet = new Set(completedSet);
     nextSet.add(topic.id);
     setCompletedSet(nextSet);
     localStorage.setItem('completedTopics', JSON.stringify([...nextSet]));
+    setShowConfetti(true);
   };
 
   return (
@@ -312,6 +322,7 @@ function TopicPage({ completedSet, setCompletedSet }) {
           {next ? `Volgende: ${next.title}` : 'Naar home'}
         </button>
       </section>
+      {showConfetti && <Confetti onDone={() => setShowConfetti(false)} />}
     </main>
   );
 }
