@@ -8,8 +8,9 @@ const TOPICS = [
     icon: '💳',
     title: 'Budget',
     subtitle: 'Overzicht van inkomsten en uitgaven en slimme keuzes maken.',
-    theory: [
+    theoryIntro:
       'Een budget is een overzicht van je inkomsten en uitgaven. Het helpt je om je geld verstandig te beheren en te weten hoeveel je kunt uitgeven.',
+    theoryBullets: [
       'Een budget toont hoeveel geld je krijgt en hoeveel je uitgeeft.',
       'Betaal eerst behoeften zoals eten, schoolmateriaal en vervoer.',
       'Stel voor een aankoop drie vragen: heb ik dit nodig, kan ik het betalen, wil ik dit morgen nog?'
@@ -25,14 +26,10 @@ const TOPICS = [
       { question: 'Welke uitgave is een behoefte?', answers: ['Nieuwe schoenen', 'Schoolboeken', 'Concertticket', 'Game'], correct: 1 }
     ],
     videoUrl: 'https://www.youtube.com/embed/PFWuMqRv5pk',
-    simulationUrl: 'https://financiele-geletterdheid.org/1-budget-11-01/1-2-je-persoonlijk-budget/1-2-je-persoonlijk-budget-oefenen/',
-    simulationLabel: 'Open budgetspel',
-    simulationTextTop: 'Oefen met je persoonlijk budget via het budgetspel van KU Leuven en werk daarna de bijkomende oefeningen af.',
-    simulationTextBottom: '',
-    simulationLinks: [
-      { title: 'Budgetspel KU Leuven', url: 'https://financiele-geletterdheid.org/1-budget-11-01/1-2-je-persoonlijk-budget/1-2-je-persoonlijk-budget-oefenen/' },
-      { title: 'Video over inkomsten en uitgaven', url: 'https://www.youtube.com/watch?v=If7c6bhzf0M' },
-      { title: 'Budgettool XL (Wikifin)', url: 'https://www.wikifin.be/nl/budgettool-xl' }
+    simulationIntro:
+      'Via de volgende link word je doorverwezen naar het budgetspel van KU Leuven. Daarnaast volgen nog twee oefeningen rond je persoonlijk budget en administratie. Volg de instructies op de pagina en keer daarna terug naar deze website nadat je alle drie de opdrachten hebt voltooid.',
+    simulationButtons: [
+      { title: 'Budgetspel KU Leuven', url: 'https://financiele-geletterdheid.org/1-budget-11-01/1-2-je-persoonlijk-budget/1-2-je-persoonlijk-budget-oefenen/' }
     ],
     resources: [
       { title: 'In deze video vind je extra informatie over het overzicht behouden tussen inkomsten en uitgaven.', url: 'https://www.youtube.com/watch?v=If7c6bhzf0M' },
@@ -45,15 +42,16 @@ const TOPICS = [
     icon: '💼',
     title: 'Geld verdienen & belastingen',
     subtitle: 'Hoe werkt inkomen en wat gebeurt er met belastingen?',
-    theory: [
+    theoryIntro:
       'Geld verdienen betekent dat je inkomen ontvangt door werk te doen, zoals een job, klusjes of een bijverdienste. Op dit inkomen betaal je vaak belastingen, die gebruikt worden om zaken zoals onderwijs, zorg en infrastructuur te financieren.',
+    theoryBullets: [
       'Geld verdienen kan op verschillende manieren, zoals een job, vakantiewerk of zelfstandige activiteiten.',
       'Van je inkomen wordt vaak een deel ingehouden als belasting.',
       'Belastingen worden gebruikt om de samenleving te financieren, zoals scholen, ziekenhuizen en wegen.',
       'Hoe meer je verdient, hoe belangrijker het is om te begrijpen hoeveel je netto overhoudt (na belastingen).'
     ],
     practice: {
-      caseText: 'Hoeveel verdient de volgende student? \n Emma werkt als jobstudent in een bakkerij en presteert 32 uur per maand. Ze verdient daarbij €12 per uur. Vergeet de RSZ er niet af te trekken.',
+      caseText: 'Hoeveel verdient de volgende student? \n Emma werkt als jobstudent in een bakkerij en presteert **32 uur per maand**. Ze verdient daarbij **€12 per uur**. Vergeet de RSZ er niet af te trekken.',
       options: ['€ 326,47', '€ 345,78', '€ 373,59', '€ 380,69'],
       answer: 2,
       explain: 'Voorbeeldberekening zoals in de lesbundel: €373,59.'
@@ -63,86 +61,106 @@ const TOPICS = [
       { question: 'Waarom bestaan belastingen?', answers: ['Voor privéwinst', 'Om publieke diensten te betalen', 'Om sparen te stoppen', 'Alleen voor volwassenen'], correct: 1 }
     ],
     videoUrl: 'https://www.youtube.com/embed/7Mnq88PmbFw',
-    simulationUrl: 'https://www.wikifin.be/nl/loonbrief',
-    simulationLabel: 'Open loonbrief',
-    simulationTextTop: 'Casus: Je bent gehuwd of wettelijk samenwonend en werkt als bediende met een brutoloon van €3.200 per maand. Je partner heeft een beroepsinkomen. In je job krijg je enkele extra voordelen zoals een transportvergoeding, groepsverzekering, firmawagen en maaltijdcheques. Daarnaast zijn er geen personen ten laste en geen extra andere netto-inhoudingen of kosten.',
-    simulationTextBottom: 'Bekijk de loonbrieflinks hieronder en bereken daarna je nettoloon.',
-    simulationLinks: [
-      { title: 'Loonbrief (algemeen)', url: 'https://www.wikifin.be/nl/loonbrief' },
+    simulationIntro:
+      'Via de volgende twee linken vind je uitleg over hoe een loonbrief van een werknemer is opgebouwd. Dit geldt voor een standaard loonbrief, aangevuld met die van een student.',
+    simulationButtons: [
+      { title: 'Standaard loonbrief', url: 'https://www.wikifin.be/nl/loonbrief' },
       { title: 'Loonbrief student', url: 'https://www.wikifin.be/nl/loonbrief-studenten' },
-      { title: 'Netto berekenen (Jobat)', url: 'https://www.jobat.be/nl/art/hoeveel-blijft-er-van-mijn-brutoloon-netto-over?cu=1' }
+      { title: 'Bereken je nettoloon', url: 'https://www.jobat.be/nl/art/hoeveel-blijft-er-van-mijn-brutoloon-netto-over?cu=1' }
     ],
+    simulationFollowup: 'Ga aan de slag met de casus en bereken je nettoloon via volgende link:',
+    simulationCaseTitle: '💼 Casus: bereken je nettoloon',
+    simulationCaseText:
+      'Je bent **gehuwd of wettelijk samenwonend** en werkt als **bediende** met een **brutoloon van €3.200 per maand**. Je partner heeft een beroepsinkomen. In je job krijg je enkele extra voordelen zoals een transportvergoeding, groepsverzekering, firmawagen en maaltijdcheques. Daarnaast zijn er geen personen ten laste en geen extra andere netto-inhoudingen of kosten.',
     resources: [
-      { title: 'Extra informatie over sparen, de verschillende aspecten staan onder elkaar genoteerd.', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' },
-      { title: 'aanvullende informatie over sparen, deze staat samen met beleggen.', url: 'https://mijngeldenik.be/category:sparen-en-beleggen' },
-      { title: 'Een meer uitgebreide weergave is ook mogelijk. Deze tool is in het Engels en toont de interesten per maand, met daarnaast een duidelijke grafische weergave van de groei van je spaargeld.', url: 'https://shortcut.ai/share/f6cf20fc-e1cb-411d-9706-cdd77524dd5b' }
+      { title: 'Via de volgende kink vind je veel laagdrempelige informatie over werken, geld verdienen en belastingen:', url: 'https://mijngeldenik.be/category:werken' },
+      { title: 'Via volgende link vind je aanvullend op de algemene info, extra informatie over de specifieke onderdelen van belastingen en de berekening van je loon.:', url: 'https://www.wikifin.be/nl/belasting-werk-eninkomen?_gl=1*1a4k38i*_up*MQ..*_gs*MQ..' },
+      { title: 'In de volgende video wordt een meer theoretische benadering van het belastbaar inkomen gegeven:', url: 'https://www.youtube.com/watch?v=dRUwcIyVEwg&t=263s' }
     ]
   },
   {
     id: 'sparen',
-    icon: '🏦',
+    icon: '💰',
     title: 'Sparen',
-    subtitle: 'Doelen stellen en regelmatig geld opzijzetten.',
-    theory: [
+    subtitle: 'Slim opzijzetten voor later.',
+    theoryIntro:
       'Sparen is geld opzijzetten dat je niet meteen uitgeeft, zodat je later iets belangrijks of duurder kunt betalen. Het helpt je om doelen te bereiken en onverwachte kosten op te vangen.',
+    theoryBullets: [
       'Sparen betekent dat je een deel van je geld bewaart in plaats van alles uit te geven.',
       'Je kunt sparen voor iets op korte termijn (zoals een nieuwe gsm) of lange termijn (zoals een reis of studie).',
       'Zet eerst een vast bedrag opzij zodra je geld krijgt, dan pas geef je de rest uit.',
       'Stel een spaardoel en vraag jezelf af: waarvoor spaar ik, hoeveel heb ik nodig en hoe lang ga ik sparen?'
     ],
-    practice: {
-      caseText: 'Voeg knop toe Bereken het te storten bedrag per maand Je wil een elektrische fiets van €8000 kopen binnen 5 jaar. Je start met een spaarsaldo van €500. Dit geld staat op een spaarrekening met een interest van 1,4% per jaar. Elke maand stort je een vast bedrag op je rekening.',
-      options: ['€ 112.30', '€ 120.20', '€ 128.60', '€ 135.50'],
-      answer: 1,
-      explain: 'Bereken het benodigde maandbedrag op basis van startkapitaal, rente en termijn.',
-      extraText: 'Via de volgende link kan je verder aan de slag met voorbeelden uit je eigen leefwereld: https://www.wikifin.be/nl/spaarcalculator'
-    },
+    practiceMode: 'document',
+    practiceIntro: 'Via de volgende link word je doorverwezen naar een simulatie over sparen:',
+    practiceButtons: [
+      { title: 'Spaarcalculator', url: 'https://www.wikifin.be/nl/spaarcalculator-1?saving=monthlySaving' }
+    ],
+    practiceCaseTitle: '💰 Casus: bereken het te storten bedrag per maand',
+    practiceParagraphs: [
+      'Bereken hoeveel je per maand opzij moet leggen in het volgende geval.',
+      'Je wil een **elektrische fiets van €8000** kopen binnen **5 jaar**. Je start met een **spaarsaldo van €500**. Dit geld staat op een spaarrekening met een **interest van 1,4% per jaar**.',
+      'Elke maand stort je een vast bedrag op je rekening.'
+    ],
+    practiceOptions: ['112.30', '120.20', '128.60', '135.50'],
+    practiceAnswer: 1,
+    practiceExplain: '120.20 is het juiste antwoord.',
+    practiceFollowup: '+ Via de volgende link kan je verder aan de slag met voorbeelden uit je eigen leefwereld:',
+    practiceFollowupButtons: [
+      { title: 'Spaarcalculator extra voorbeelden', url: 'https://www.wikifin.be/nl/spaarcalculator' }
+    ],
     quiz: [
-      { question: 'Wat helpt het meest om een spaardoel te halen?', answers: ['Geen plan maken', 'Wekelijks bijhouden', 'Alles tegelijk kopen', 'Spaargeld uitlenen aan vrienden'], correct: 1 },
-      { question: 'Wat is een goed spaardoel?', answers: ['Iets vaags', 'Iets meetbaar met bedrag en datum', 'Iets zonder deadline', 'Iets dat anderen kiezen'], correct: 1 }
+      { question: 'Wat doe je best eerst wanneer je geld krijgt?', answers: ['Alles meteen uitgeven', 'Een vast bedrag sparen', 'Lenen van vrienden', 'Online shoppen'], correct: 1 },
+      { question: 'Waarom spaar je?', answers: ['Alleen voor fun', 'Voor doelen en onverwachte kosten', 'Om belastingen te betalen', 'Omdat geld moet verdwijnen'], correct: 1 }
     ],
     videoUrl: 'https://www.youtube.com/embed/IDeeP51wBxE',
-    simulationUrl: 'https://www.wikifin.be/nl/sparen-en-beleggen/vergelijkingstool-spaarrekeningen?savingssim=default',
-    simulationLabel: 'Open spaarcalculator',
-    simulationTextTop: 'Elke spaarrekening is anders. Daarom heeft Wikifin een handige vergelijkingstool ontwikkeld.',
-    simulationTextBottom: 'Neem 5 minuten de tijd om deze tool te leren kennen. Experimenteer met je startbedrag, je maandelijkse storting en je spaarperiode. Vergelijk daarna de verschillende spaarrekeningen die banken in jouw geval aanbieden en bekijk hoe groot het verschil in eindbedrag kan zijn.',
-    simulationLinks: [
-
+    simulationHeading: 'Vergelijk spaarrekeningen',
+    simulationIntro: 'Elke spaarrekening is anders. Daarom heeft Wikifin een handige vergelijkingstool ontwikkeld:',
+    simulationButtons: [
+      {
+        title: 'Vergelijk spaarrekeningen',
+        url: 'https://www.wikifin.be/nl/sparen-en-beleggen/vergelijkingstoolspaarrekeningen?savingssim=default'
+      }
     ],
+    simulationFollowup:
+      'Neem **5 minuten de tijd** om deze tool te leren kennen. **Experimenteer** met je **startbedrag**, je **maandelijkse storting** en je **spaarperiode**. **Vergelijk** daarna de **verschillende spaarrekeningen** die banken in jouw geval aanbieden en bekijk hoe groot het verschil in eindbedrag kan zijn.',
     resources: [
-      { title: 'Vergelijk spaarrekeningen (Wikifin)', url: 'https://www.wikifin.be/nl/sparen-en-beleggen/vergelijkingstool-spaarrekeningen?savingssim=default' },
-      { title: 'Spaarcalculator', url: 'https://www.wikifin.be/nl/spaarcalculator' }
+      { title: 'Via de volgende kink vind je extra informatie over sparen, de verschillende aspecten staan onder elkaar genoteerd:', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' },
+      { title: 'Via de volgende link vind je aanvullende informatie over sparen, deze staat samen met beleggen. Dit wordt in deze weergave als een apart onderdeel besproken.', url: 'https://mijngeldenik.be/category:sparen-en-beleggen' },
+      { title: 'Een meer uitgebreide weergave is ook mogelijk. Deze tool is in het Engels en toont de interesten per maand, met daarnaast een duidelijke grafische weergave van de groei van je spaargeld.', url: 'https://shortcut.ai/share/f6cf20fc-e1cb-411d-9706-cdd77524dd5b' }
     ]
   },
   {
     id: 'beleggen',
     icon: '📈',
     title: 'Beleggen',
-    subtitle: 'Risico, rendement en spreiden van investeringen.',
-    theory: [
+    subtitle: 'Rendement, risico en spreiding begrijpen.',
+    theoryIntro:
       'Beleggen betekent dat je geld investeert met de verwachting dat het op lange termijn meer waard wordt. In tegenstelling tot sparen kan de waarde ook dalen.',
+    theoryBullets: [
       'Beleggen is geld investeren (bv. in aandelen of fondsen) om winst te maken op lange termijn.',
       'De waarde kan stijgen, maar ook dalen: er is dus risico.',
       'Beleggen doe je vooral op lange termijn om schommelingen op te vangen.',
       'Spreid je beleggingen om het risico te beperken.',
       'Vraag jezelf af: begrijp ik het, kan ik verlies aan, en kan ik het geld lang missen?'
     ],
+    theoryOutro:
+      'Beleggen kan best complex lijken. Gelukkig heeft Febelfin een reeks toegankelijke video\'s ontwikkeld waarin Kamal Kharmach de basisprincipes van beleggen op een heldere en vaak humoristische manier uitlegt. De video\'s maken moeilijke begrippen begrijpelijk en tonen dat je geen expert hoeft te zijn om meer te leren over beleggen. Bekijk de video\'s via de volgende link:',
+    theoryOutroLink: 'https://www.youtube.com/watch?v=-Ehhche0t08&list=PLb-yHoQ5fKK_X4r-apJVQCxQpYF9-VQoD',
     practice: {
-      caseText: 'Bereken hoeveel je aandelen waard zullen zijn in de volgende casus. Duid hierna het juiste antwoord aan. Je beslist om €2.000 te beleggen. Je verdeelt dit bedrag als volgt:  60% investeer je in een technologiefonds. Na één jaar stijgt dit fonds met 12%. 40% investeer je in een energiebedrijf. Na één jaar daalt dit aandeel met 4%',
-      options: ['€2.012', '€2.112', '€1.912', '€2.212'],
+      caseText: 'Je belegt €2.000: 60% in een technologiefonds dat 12% stijgt en 40% in een energiebedrijf dat 4% daalt. Hoeveel is je belegging na één jaar waard?',
+      options: ['€ 2.048', '€ 2.080', '€ 2.112', '€ 2.144'],
       answer: 2,
-      explain: '60% van 2000 groeit 12% en 40% daalt 4% — eindwaarde ≈ €2.112.'
+      explain: '60% van €2000 groeit 12% en 40% daalt 4% — eindwaarde ≈ €2.112.'
     },
     quiz: [
       { question: 'Wat is spreiden?', answers: ['Alles in één aandeel', 'Investeren in meerdere opties', 'Niet meer investeren', 'Alleen cash bewaren'], correct: 1 },
       { question: 'Waarom spreiden?', answers: ['Meer risico', 'Risico beperken', 'Geen verschil', 'Meer kosten'], correct: 1 }
     ],
     videoUrl: 'https://www.youtube.com/embed/GmUBevhJYCg',
-    simulationUrl: 'https://smgiq.org/',
-    simulationLabel: 'Open beleggingssimulatie',
-    simulationTextTop: 'Volg de online beleggingssimulatie en lees daarna extra uitleg over spreiden, risico en rendement.',
-    simulationTextBottom: '',
-    simulationLinks: [
+    simulationIntro: 'Via de volgende link word je doorverwezen naar een online simulatie over beleggen. Volg de instructies en word zo een echte belegger!',
+    simulationButtons: [
+      { title: 'Online beleggingssimulatie', url: 'https://smgiq.org/' }
     ],
     resources: [
       { title: 'ClubBeleg (Febelfin)', url: 'https://clubbeleg.be/' },
@@ -184,6 +202,20 @@ function getMaxScore(topic) {
 
 function getTotalQuestionCount() {
   return TOPICS.reduce((total, topic) => total + getMaxScore(topic), 0);
+}
+
+function renderFormattedText(text) {
+  return text.split(/(\*\*.*?\*\*)/g).filter(Boolean).map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={`${part}-${index}`}>{part.slice(2, -2)}</strong>;
+    }
+
+    return part;
+  });
+}
+
+function getUniqueLinks(links = []) {
+  return links.filter((link, index, array) => index === array.findIndex((item) => item.url === link.url));
 }
 
 function HomePage({ completedSet, quizScores, onResetProgress }) {
@@ -305,7 +337,6 @@ function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores })
   const [shuffledQuiz, setShuffledQuiz] = useState(() => buildShuffledQuiz(topic));
 
   useEffect(() => {
-    // clear answers when switching topics so selections don't carry over
     setPracticeChoice(null);
     setQuizAnswers({});
     setShuffledQuiz(buildShuffledQuiz(topic));
@@ -396,56 +427,133 @@ function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores })
       </section>
 
       <section className="content-card">
-        <h2>Korte uitleg</h2>
-        <ul className="theory-list">
-          {topic.theory.map((point, index) => (
-            <li key={point} className={index === 0 ? 'no-marker' : ''}>
-              {point}
-            </li>
-          ))}
-        </ul>
+        <h2>Uitleg</h2>
+        {topic.theoryIntro && <p className="simulation-copy">{renderFormattedText(topic.theoryIntro)}</p>}
+        {topic.theoryBullets && (
+          <ul className="theory-list">
+            {topic.theoryBullets.map((point) => (
+              <li key={point}>{renderFormattedText(point)}</li>
+            ))}
+          </ul>
+        )}
+        {topic.theoryOutro && <p className="simulation-copy">{renderFormattedText(topic.theoryOutro)}</p>}
+        {topic.theoryOutroLink && (
+          <p className="simulation-copy">
+            <a href={topic.theoryOutroLink} target="_blank" rel="noreferrer">
+              {topic.theoryOutroLink}
+            </a>
+          </p>
+        )}
       </section>
 
       <section className="content-card">
-        <h2>Oefening</h2>
-        {topic.simulationTextTop && <p className="simulation-copy simulation-copy-top">{topic.simulationTextTop}</p>}
-        <a className="btn btn-primary" href={topic.simulationUrl} target="_blank" rel="noreferrer">
-          {topic.simulationLabel ?? 'Open simulatie'}
-        </a>
-        {topic.simulationLinks && (
+        <h2>Simulatie</h2>
+        {topic.simulationHeading && <p className="simulation-copy simulation-copy-top"><strong>{topic.simulationHeading}</strong></p>}
+        {topic.simulationIntro && <p className="simulation-copy simulation-copy-top">{renderFormattedText(topic.simulationIntro)}</p>}
+        {topic.simulationButtons && topic.simulationButtons.length > 0 && (
           <div className="simulation-buttons">
-            {topic.simulationLinks.map((link) => (
-              <a key={link.title} className="btn btn-secondary simulation-button" href={link.url} target="_blank" rel="noreferrer">
-                {link.title}
-              </a>
-            ))}
+            {getUniqueLinks(topic.simulationButtons).map((link, index) => (
+                <a
+                  key={`${link.url}-${index}`}
+                  className="btn btn-secondary simulation-button"
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {link.title}
+                </a>
+              ))}
           </div>
         )}
-        {topic.simulationTextBottom && <p className="simulation-copy simulation-copy-bottom">{topic.simulationTextBottom}</p>}
+        {topic.simulationFollowup && <p className="simulation-copy simulation-copy-bottom">{renderFormattedText(topic.simulationFollowup)}</p>}
+        {topic.simulationCaseTitle && <p className="simulation-copy simulation-copy-bottom"><strong>{topic.simulationCaseTitle}</strong></p>}
+        {topic.simulationCaseText && <p className="simulation-copy simulation-copy-bottom">{renderFormattedText(topic.simulationCaseText)}</p>}
       </section>
 
       <section className="content-card">
         <h2>Praktijkvoorbeeld</h2>
-        <p className="quiz-prompt">{topic.practice.caseText}</p>
-        <div className="options-grid practice-options">
-          {topic.practice.options.map((option, idx) => (
-            <button
-              key={option}
-              className={`option ${practiceChoice === idx ? 'selected' : ''}`}
-              onClick={() => setPracticeChoice(idx)}
-            >
-              <span className="option-letter">{String.fromCharCode(65 + idx)}</span>
-              <span>{option}</span>
-            </button>
-          ))}
-        </div>
-        {practiceChoice !== null && (
-          <p className={practiceChoice === topic.practice.answer ? 'feedback good' : 'feedback bad'}>
-            {practiceChoice === topic.practice.answer ? 'Correct. ' : 'Nog niet juist. '}
-            {topic.practice.explain}
-          </p>
+        {topic.practiceMode === 'document' ? (
+          <>
+            {topic.practiceIntro && <p className="simulation-copy">{renderFormattedText(topic.practiceIntro)}</p>}
+            {topic.practiceButtons && topic.practiceButtons.length > 0 && (
+              <div className="simulation-buttons">
+                {getUniqueLinks(topic.practiceButtons).map((link, index) => (
+                  <a
+                    key={`${link.url}-${index}`}
+                    className="btn btn-secondary simulation-button"
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.title}
+                  </a>
+                ))}
+              </div>
+            )}
+            {topic.practiceCaseTitle && <p className="simulation-copy simulation-copy-bottom"><strong>{topic.practiceCaseTitle}</strong></p>}
+            {topic.practiceParagraphs && topic.practiceParagraphs.map((paragraph) => (
+              <p key={paragraph} className="simulation-copy simulation-copy-bottom">{renderFormattedText(paragraph)}</p>
+            ))}
+            {topic.practiceOptions && (
+              <div className="options-grid practice-options">
+                {topic.practiceOptions.map((option, idx) => (
+                  <button
+                    key={option}
+                    className={`option ${practiceChoice === idx ? 'selected' : ''}`}
+                    onClick={() => setPracticeChoice(idx)}
+                  >
+                    <span className="option-letter">{String.fromCharCode(65 + idx)}</span>
+                    <span>{option}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+            {topic.practiceOptions && practiceChoice !== null && (
+              <p className={practiceChoice === topic.practiceAnswer ? 'feedback good' : 'feedback bad'}>
+                {practiceChoice === topic.practiceAnswer ? 'Correct. ' : 'Nog niet juist. '}
+                {topic.practiceExplain}
+              </p>
+            )}
+            {topic.practiceFollowup && <p className="simulation-copy simulation-copy-bottom">{renderFormattedText(topic.practiceFollowup)}</p>}
+            {topic.practiceFollowupButtons && topic.practiceFollowupButtons.length > 0 && (
+              <div className="simulation-buttons">
+                {getUniqueLinks(topic.practiceFollowupButtons).map((link, index) => (
+                  <a
+                    key={`${link.url}-${index}`}
+                    className="btn btn-secondary simulation-button"
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {link.title}
+                  </a>
+                ))}
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            <p className="quiz-prompt" style={{ whiteSpace: 'pre-line' }}>{renderFormattedText(topic.practice.caseText)}</p>
+            <div className="options-grid practice-options">
+              {topic.practice.options.map((option, idx) => (
+                <button
+                  key={option}
+                  className={`option ${practiceChoice === idx ? 'selected' : ''}`}
+                  onClick={() => setPracticeChoice(idx)}
+                >
+                  <span className="option-letter">{String.fromCharCode(65 + idx)}</span>
+                  <span>{option}</span>
+                </button>
+              ))}
+            </div>
+            {practiceChoice !== null && (
+              <p className={practiceChoice === topic.practice.answer ? 'feedback good' : 'feedback bad'}>
+                {practiceChoice === topic.practice.answer ? 'Correct. ' : 'Nog niet juist. '}
+                {topic.practice.explain}
+              </p>
+            )}
+          </>
         )}
-        {topic.id === 'sparen' && topic.practice.extraText && <p className="simulation-copy">{topic.practice.extraText}</p>}
       </section>
 
       <section className="content-card">

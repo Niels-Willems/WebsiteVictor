@@ -492,11 +492,11 @@ a {
   border: 1px solid var(--line);
   padding: clamp(1rem, 2vw, 1.35rem);
   box-shadow: var(--shadow-soft);
+}
 
 .theory-list .no-marker {
   list-style-type: none;
   margin-left: -1.2rem;
-}
 }
 
 .resources-card {
@@ -578,11 +578,37 @@ a {
 .simulation-buttons {
   margin-top: 0.85rem;
   display: grid;
-  gap: 0.6rem;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .simulation-button {
   width: 100%;
+  min-height: 3.2rem;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+  border: 1px solid #cfe1de;
+  background: linear-gradient(180deg, #f8fdfc, #eef7f5);
+  color: var(--primary-strong);
+  box-shadow: 0 8px 20px rgba(11, 119, 116, 0.08);
+  text-align: left;
+}
+
+.simulation-button::after {
+  content: '↗';
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--primary);
+}
+
+.simulation-button:hover {
+  border-color: #9ec9c3;
+  background: linear-gradient(180deg, #ffffff, #e9f5f2);
+  box-shadow: 0 12px 24px rgba(11, 119, 116, 0.12);
+}
+
+.simulation-button:focus-visible {
+  outline: 3px solid rgba(11, 119, 116, 0.22);
 }
 
 .quiz-prompt {
