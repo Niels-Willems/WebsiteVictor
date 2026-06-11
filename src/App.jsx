@@ -62,7 +62,7 @@ const TOPICS = [
       { question: 'Wat houdt men in op je loon?', answers: ['Niets', 'Belastingen en inhoudingen', 'Alleen vakantiegeld', 'Alleen pensioen'], correct: 1 },
       { question: 'Waarom bestaan belastingen?', answers: ['Voor privéwinst', 'Om publieke diensten te betalen', 'Om sparen te stoppen', 'Alleen voor volwassenen'], correct: 1 }
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=IDeeP51wBxE',
+    videoUrl: 'https://www.youtube.com/embed/7Mnq88PmbFw',
     simulationUrl: 'https://www.wikifin.be/nl/loonbrief',
     simulationLabel: 'Open loonbrief',
     simulationTextTop: 'Casus: Je bent gehuwd of wettelijk samenwonend en werkt als bediende met een brutoloon van €3.200 per maand. Je partner heeft een beroepsinkomen. In je job krijg je enkele extra voordelen zoals een transportvergoeding, groepsverzekering, firmawagen en maaltijdcheques. Daarnaast zijn er geen personen ten laste en geen extra andere netto-inhoudingen of kosten.',
@@ -101,7 +101,7 @@ const TOPICS = [
       { question: 'Wat helpt het meest om een spaardoel te halen?', answers: ['Geen plan maken', 'Wekelijks bijhouden', 'Alles tegelijk kopen', 'Spaargeld uitlenen aan vrienden'], correct: 1 },
       { question: 'Wat is een goed spaardoel?', answers: ['Iets vaags', 'Iets meetbaar met bedrag en datum', 'Iets zonder deadline', 'Iets dat anderen kiezen'], correct: 1 }
     ],
-    videoUrl: 'https://www.youtube.com/watch?v=IDeeP51wBxE',
+    videoUrl: 'https://www.youtube.com/embed/IDeeP51wBxE',
     simulationUrl: 'https://www.wikifin.be/nl/sparen-en-beleggen/vergelijkingstool-spaarrekeningen?savingssim=default',
     simulationLabel: 'Open spaarcalculator',
     simulationTextTop: 'Elke spaarrekening is anders. Daarom heeft Wikifin een handige vergelijkingstool ontwikkeld.',
@@ -120,33 +120,34 @@ const TOPICS = [
     title: 'Beleggen',
     subtitle: 'Risico, rendement en spreiden van investeringen.',
     theory: [
-      'Beleggen betekent dat je geld investeert met de verwachting dat het op lange termijn meer waard wordt.',
-      'In tegenstelling tot sparen kan de waarde ook dalen: er is risico.',
-      'Spreid je beleggingen om het risico te beperken en beleg alleen geld dat je kunt missen.'
+      'Beleggen betekent dat je geld investeert met de verwachting dat het op lange termijn meer waard wordt. In tegenstelling tot sparen kan de waarde ook dalen.',
+      'Beleggen is geld investeren (bv. in aandelen of fondsen) om winst te maken op lange termijn.',
+      'De waarde kan stijgen, maar ook dalen: er is dus risico.',
+      'Beleggen doe je vooral op lange termijn om schommelingen op te vangen.',
+      'Spreid je beleggingen om het risico te beperken.',
+      'Vraag jezelf af: begrijp ik het, kan ik verlies aan, en kan ik het geld lang missen?'
     ],
     practice: {
-      caseText: 'Je belegt €2.000: 60% technologiefonds (+12%), 40% energiebedrijf (-4%). Wat is de waarde na 1 jaar?',
-      options: ['€2.012', '€2.112', '€1.900', '€2.200'],
-      answer: 1,
+      caseText: 'Bereken hoeveel je aandelen waard zullen zijn in de volgende casus. Duid hierna het juiste antwoord aan. Je beslist om €2.000 te beleggen. Je verdeelt dit bedrag als volgt:  60% investeer je in een technologiefonds. Na één jaar stijgt dit fonds met 12%. 40% investeer je in een energiebedrijf. Na één jaar daalt dit aandeel met 4%',
+      options: ['€2.012', '€2.112', '€1.912', '€2.212'],
+      answer: 2,
       explain: '60% van 2000 groeit 12% en 40% daalt 4% — eindwaarde ≈ €2.112.'
     },
     quiz: [
       { question: 'Wat is spreiden?', answers: ['Alles in één aandeel', 'Investeren in meerdere opties', 'Niet meer investeren', 'Alleen cash bewaren'], correct: 1 },
       { question: 'Waarom spreiden?', answers: ['Meer risico', 'Risico beperken', 'Geen verschil', 'Meer kosten'], correct: 1 }
     ],
-    videoUrl: 'https://www.youtube.com/embed/-Ehhche0t08',
+    videoUrl: 'https://www.youtube.com/embed/GmUBevhJYCg',
     simulationUrl: 'https://smgiq.org/',
     simulationLabel: 'Open beleggingssimulatie',
     simulationTextTop: 'Volg de online beleggingssimulatie en lees daarna extra uitleg over spreiden, risico en rendement.',
     simulationTextBottom: '',
     simulationLinks: [
-      { title: 'Online beleggingssimulatie', url: 'https://smgiq.org/' },
-      { title: 'Club Beleg', url: 'https://clubbeleg.be/' },
-      { title: 'Wikifin: sparen en beleggen', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' }
     ],
     resources: [
       { title: 'ClubBeleg (Febelfin)', url: 'https://clubbeleg.be/' },
-      { title: 'Wikifin: sparen en beleggen', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' }
+      { title: 'Wikifin: sparen en beleggen', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' },
+      { title: 'Aanvullend op deze informatie vind je aanvullend op mijngeldenik zeer toegankelijke info', url: 'https://mijngeldenik.be/category:sparen-en-beleggen' }
     ]
   }
 ];
