@@ -105,7 +105,7 @@ const TOPICS = [
     practiceOptions: ['112.30', '120.20', '128.60', '135.50'],
     practiceAnswer: 1,
     practiceExplain: '120.20 is het juiste antwoord.',
-    practiceFollowup: '+ Via de volgende link kan je verder aan de slag met voorbeelden uit je eigen leefwereld:',
+    practiceFollowup: 'Via de volgende link kan je verder aan de slag met voorbeelden uit je eigen leefwereld:',
     practiceFollowupButtons: [
       { title: 'Spaarcalculator extra voorbeelden', url: 'https://www.wikifin.be/nl/spaarcalculator' }
     ],
@@ -147,12 +147,19 @@ const TOPICS = [
     theoryOutro:
       'Beleggen kan best complex lijken. Gelukkig heeft Febelfin een reeks toegankelijke video\'s ontwikkeld waarin Kamal Kharmach de basisprincipes van beleggen op een heldere en vaak humoristische manier uitlegt. De video\'s maken moeilijke begrippen begrijpelijk en tonen dat je geen expert hoeft te zijn om meer te leren over beleggen. Bekijk de video\'s via de volgende link:',
     theoryOutroLink: 'https://www.youtube.com/watch?v=-Ehhche0t08&list=PLb-yHoQ5fKK_X4r-apJVQCxQpYF9-VQoD',
-    practice: {
-      caseText: 'Je belegt €2.000: 60% in een technologiefonds dat 12% stijgt en 40% in een energiebedrijf dat 4% daalt. Hoeveel is je belegging na één jaar waard?',
-      options: ['€ 2.048', '€ 2.080', '€ 2.112', '€ 2.144'],
-      answer: 2,
-      explain: '60% van €2000 groeit 12% en 40% daalt 4% — eindwaarde ≈ €2.112.'
-    },
+    practiceMode: 'document',
+    practiceIntro: 'Bereken hoeveel je aandelen waard zullen zijn in de volgende casus. Duid hierna het juiste antwoord aan.',
+    practiceCaseTitle: '📈 Casus: een gespreide belegging',
+    practiceParagraphs: [
+      'Je beslist om **€2.000** te beleggen. Je verdeelt dit bedrag als volgt:'
+    ],
+    practiceBullets: [
+      '**60%** investeer je in een technologiefonds. Na één jaar stijgt dit fonds met **12%**.',
+      '**40%** investeer je in een energiebedrijf. Na één jaar daalt dit aandeel met **4%**.'
+    ],
+    practiceOptions: ['€ 2.048', '€ 2.080', '€ 2.112', '€ 2.144'],
+    practiceAnswer: 2,
+    practiceExplain: 'OPLOSSING= 2112',
     quiz: [
       { question: 'Wat is spreiden?', answers: ['Alles in één aandeel', 'Investeren in meerdere opties', 'Niet meer investeren', 'Alleen cash bewaren'], correct: 1 },
       { question: 'Waarom spreiden?', answers: ['Meer risico', 'Risico beperken', 'Geen verschil', 'Meer kosten'], correct: 1 }
@@ -438,11 +445,11 @@ function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores })
         )}
         {topic.theoryOutro && <p className="simulation-copy">{renderFormattedText(topic.theoryOutro)}</p>}
         {topic.theoryOutroLink && (
-          <p className="simulation-copy">
-            <a href={topic.theoryOutroLink} target="_blank" rel="noreferrer">
-              {topic.theoryOutroLink}
+          <div className="simulation-buttons">
+            <a className="btn btn-secondary simulation-button" href={topic.theoryOutroLink} target="_blank" rel="noreferrer">
+              Bekijk de video's
             </a>
-          </p>
+          </div>
         )}
       </section>
 
@@ -494,6 +501,13 @@ function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores })
             {topic.practiceParagraphs && topic.practiceParagraphs.map((paragraph) => (
               <p key={paragraph} className="simulation-copy simulation-copy-bottom">{renderFormattedText(paragraph)}</p>
             ))}
+            {topic.practiceBullets && (
+              <ul className="theory-list">
+                {topic.practiceBullets.map((bullet) => (
+                  <li key={bullet}>{renderFormattedText(bullet)}</li>
+                ))}
+              </ul>
+            )}
             {topic.practiceOptions && (
               <div className="options-grid practice-options">
                 {topic.practiceOptions.map((option, idx) => (
