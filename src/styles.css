@@ -492,6 +492,11 @@ a {
   border: 1px solid var(--line);
   padding: clamp(1rem, 2vw, 1.35rem);
   box-shadow: var(--shadow-soft);
+
+.theory-list .no-marker {
+  list-style-type: none;
+  margin-left: -1.2rem;
+}
 }
 
 .resources-card {
@@ -568,6 +573,16 @@ a {
   display: grid;
   gap: 0.55rem;
   line-height: 1.55;
+}
+
+.simulation-buttons {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.simulation-button {
+  width: 100%;
 }
 
 .quiz-prompt {

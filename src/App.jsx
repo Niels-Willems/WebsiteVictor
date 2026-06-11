@@ -4,46 +4,12 @@ import Confetti from './Confetti.jsx';
 
 const TOPICS = [
   {
-    id: 'geld-verdienen',
-    icon: '💼',
-    title: 'Geld verdienen & belastingen',
-    subtitle: 'Ontdek hoe inkomen werkt en waarom belastingen bestaan.',
-    theory: [
-      'Je kan geld verdienen via een studentenjob, vakantiejob of kleine opdrachten.',
-      'Belastingen zijn bijdragen waarmee overheid scholen, wegen en zorg betaalt.',
-      'Check altijd je loonfiche zodat je ziet wat je brutoloon en nettoloon is.'
-    ],
-    practice: {
-      caseText: 'Milan verdient 280 euro met een weekendjob en geeft 120 euro uit. Hoeveel houdt hij over?',
-      options: ['120 euro', '140 euro', '160 euro', '180 euro'],
-      answer: 2,
-      explain: '280 - 120 = 160 euro.'
-    },
-    quiz: [
-      {
-        question: 'Wat is nettoloon?',
-        answers: ['Loon zonder belastingen', 'Loon na inhoudingen', 'Enkel vakantiegeld', 'Werkbonus'],
-        correct: 1
-      },
-      {
-        question: 'Waarom bestaan belastingen?',
-        answers: ['Voor privéwinst', 'Om publieke diensten te betalen', 'Om sparen te stoppen', 'Alleen voor volwassenen'],
-        correct: 1
-      }
-    ],
-    videoUrl: 'https://www.youtube.com/embed/bE6t4hWkqEs',
-    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school',
-    resources: [
-      { title: 'Geld verdienen via studentenjobs', url: 'https://www.vlaanderen.be/wetgeving/studentenjob' },
-      { title: 'Hoe werken belastingen?', url: 'https://www.wikifin.be/nl/lesplein/wat-zijn-belastingen' }
-    ]
-  },
-  {
     id: 'omgaan-met-geld',
     icon: '💳',
-    title: 'Omgaan met geld',
-    subtitle: 'Leer budgetteren en maak slimme keuzes met je uitgaven.',
+    title: 'Budget',
+    subtitle: 'Overzicht van inkomsten en uitgaven en slimme keuzes maken.',
     theory: [
+      'Een budget is een overzicht van je inkomsten en uitgaven. Het helpt je om je geld verstandig te beheren en te weten hoeveel je kunt uitgeven.',
       'Een budget toont hoeveel geld je krijgt en hoeveel je uitgeeft.',
       'Betaal eerst behoeften zoals eten, schoolmateriaal en vervoer.',
       'Stel voor een aankoop drie vragen: heb ik dit nodig, kan ik het betalen, wil ik dit morgen nog?'
@@ -55,97 +21,132 @@ const TOPICS = [
       explain: '100 - 40 - 15 - 30 = 15 euro.'
     },
     quiz: [
-      {
-        question: 'Wat is een budget?',
-        answers: ['Een lening', 'Een overzicht van inkomsten en uitgaven', 'Een belasting', 'Een spaarrekening'],
-        correct: 1
-      },
-      {
-        question: 'Welke uitgave is een behoefte?',
-        answers: ['Nieuwe schoenen', 'Schoolboeken', 'Concertticket', 'Game'],
-        correct: 1
-      },
-      {
-        question: 'Waarom is sparen belangrijk?',
-        answers: ['Om voorbereid te zijn op toekomstige kosten', 'Om meer uit te geven', 'Om belastingen te betalen', 'Om rijk te lijken'],
-        correct: 0
-      }
+      { question: 'Wat is een budget?', answers: ['Een lening', 'Een overzicht van inkomsten en uitgaven', 'Een belasting', 'Een spaarrekening'], correct: 1 },
+      { question: 'Welke uitgave is een behoefte?', answers: ['Nieuwe schoenen', 'Schoolboeken', 'Concertticket', 'Game'], correct: 1 }
     ],
-    videoUrl: 'https://www.youtube.com/embed/L9WQjCccv8k',
-    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school',
+    videoUrl: 'https://www.youtube.com/embed/PFWuMqRv5pk',
+    simulationUrl: 'https://financiele-geletterdheid.org/1-budget-11-01/1-2-je-persoonlijk-budget/1-2-je-persoonlijk-budget-oefenen/',
+    simulationLabel: 'Open budgetspel',
+    simulationTextTop: 'Oefen met je persoonlijk budget via het budgetspel van KU Leuven en werk daarna de bijkomende oefeningen af.',
+    simulationTextBottom: '',
+    simulationLinks: [
+      { title: 'Budgetspel KU Leuven', url: 'https://financiele-geletterdheid.org/1-budget-11-01/1-2-je-persoonlijk-budget/1-2-je-persoonlijk-budget-oefenen/' },
+      { title: 'Video over inkomsten en uitgaven', url: 'https://www.youtube.com/watch?v=If7c6bhzf0M' },
+      { title: 'Budgettool XL (Wikifin)', url: 'https://www.wikifin.be/nl/budgettool-xl' }
+    ],
     resources: [
-      { title: 'Budget maken in stappen', url: 'https://www.wikifin.be/nl/lesplein/budgetteren' },
-      { title: 'Behoeften vs. Wensen', url: 'https://www.wikifin.be/nl/lesplein/behoeften-en-wensen' }
+      { title: 'In deze video vind je extra informatie over het overzicht behouden tussen inkomsten en uitgaven.', url: 'https://www.youtube.com/watch?v=If7c6bhzf0M' },
+      { title: 'Als leerkracht kan je het spel ‘Buget aan zet’ van wikifin implementeren in je les.', url: 'https://www.wikifin.be/nl/budgettool-xl' },
+      { title: 'Om je leerlingen een budget te laten opstellen, kan je gebruikmaken van de Budgettool XL van Wikifin. Via een eenvoudige tekst en duidelijke opdrachten laat je hen zelfstandig aan de slag gaan om een persoonlijk budget op te stellen.', url: 'http://www.wikifin.be/nl/wikifin-school/budget-aan-zet' }
+    ]
+  },
+  {
+    id: 'geld-verdienen',
+    icon: '💼',
+    title: 'Geld verdienen & belastingen',
+    subtitle: 'Hoe werkt inkomen en wat gebeurt er met belastingen?',
+    theory: [
+      'Geld verdienen betekent dat je inkomen ontvangt door werk te doen, zoals een job, klusjes of een bijverdienste. Op dit inkomen betaal je vaak belastingen, die gebruikt worden om zaken zoals onderwijs, zorg en infrastructuur te financieren.',
+      'Geld verdienen kan op verschillende manieren, zoals een job, vakantiewerk of zelfstandige activiteiten.',
+      'Van je inkomen wordt vaak een deel ingehouden als belasting.',
+      'Belastingen worden gebruikt om de samenleving te financieren, zoals scholen, ziekenhuizen en wegen.',
+      'Hoe meer je verdient, hoe belangrijker het is om te begrijpen hoeveel je netto overhoudt (na belastingen).'
+    ],
+    practice: {
+      caseText: 'Hoeveel verdient de volgende student? \n Emma werkt als jobstudent in een bakkerij en presteert 32 uur per maand. Ze verdient daarbij €12 per uur. Vergeet de RSZ er niet af te trekken.',
+      options: ['€ 326,47', '€ 345,78', '€ 373,59', '€ 380,69'],
+      answer: 2,
+      explain: 'Voorbeeldberekening zoals in de lesbundel: €373,59.'
+    },
+    quiz: [
+      { question: 'Wat houdt men in op je loon?', answers: ['Niets', 'Belastingen en inhoudingen', 'Alleen vakantiegeld', 'Alleen pensioen'], correct: 1 },
+      { question: 'Waarom bestaan belastingen?', answers: ['Voor privéwinst', 'Om publieke diensten te betalen', 'Om sparen te stoppen', 'Alleen voor volwassenen'], correct: 1 }
+    ],
+    videoUrl: 'https://www.youtube.com/watch?v=IDeeP51wBxE',
+    simulationUrl: 'https://www.wikifin.be/nl/loonbrief',
+    simulationLabel: 'Open loonbrief',
+    simulationTextTop: 'Casus: Je bent gehuwd of wettelijk samenwonend en werkt als bediende met een brutoloon van €3.200 per maand. Je partner heeft een beroepsinkomen. In je job krijg je enkele extra voordelen zoals een transportvergoeding, groepsverzekering, firmawagen en maaltijdcheques. Daarnaast zijn er geen personen ten laste en geen extra andere netto-inhoudingen of kosten.',
+    simulationTextBottom: 'Bekijk de loonbrieflinks hieronder en bereken daarna je nettoloon.',
+    simulationLinks: [
+      { title: 'Loonbrief (algemeen)', url: 'https://www.wikifin.be/nl/loonbrief' },
+      { title: 'Loonbrief student', url: 'https://www.wikifin.be/nl/loonbrief-studenten' },
+      { title: 'Netto berekenen (Jobat)', url: 'https://www.jobat.be/nl/art/hoeveel-blijft-er-van-mijn-brutoloon-netto-over?cu=1' }
+    ],
+    resources: [
+      { title: 'Extra informatie over sparen, de verschillende aspecten staan onder elkaar genoteerd.', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' },
+      { title: 'aanvullende informatie over sparen, deze staat samen met beleggen.', url: 'https://mijngeldenik.be/category:sparen-en-beleggen' },
+      { title: 'Een meer uitgebreide weergave is ook mogelijk. Deze tool is in het Engels en toont de interesten per maand, met daarnaast een duidelijke grafische weergave van de groei van je spaargeld.', url: 'https://shortcut.ai/share/f6cf20fc-e1cb-411d-9706-cdd77524dd5b' }
     ]
   },
   {
     id: 'sparen',
     icon: '🏦',
     title: 'Sparen',
-    subtitle: 'Bouw spaardoelen op en leer prioriteiten stellen.',
+    subtitle: 'Doelen stellen en regelmatig geld opzijzetten.',
     theory: [
-      'Sparen werkt beter met een concreet doel en een deadline.',
-      'Gebruik de 24-uursregel om impulsaankopen te vermijden.',
-      'Automatisch sparen maakt volhouden makkelijker.'
+      'Sparen is geld opzijzetten dat je niet meteen uitgeeft, zodat je later iets belangrijks of duurder kunt betalen. Het helpt je om doelen te bereiken en onverwachte kosten op te vangen.',
+      'Sparen betekent dat je een deel van je geld bewaart in plaats van alles uit te geven.',
+      'Je kunt sparen voor iets op korte termijn (zoals een nieuwe gsm) of lange termijn (zoals een reis of studie).',
+      'Zet eerst een vast bedrag opzij zodra je geld krijgt, dan pas geef je de rest uit.',
+      'Stel een spaardoel en vraag jezelf af: waarvoor spaar ik, hoeveel heb ik nodig en hoe lang ga ik sparen?'
     ],
     practice: {
-      caseText: 'Noor wil 360 euro sparen in 6 maanden. Hoeveel moet ze elke maand sparen?',
-      options: ['40 euro', '50 euro', '60 euro', '70 euro'],
-      answer: 2,
-      explain: '360 / 6 = 60 euro per maand.'
+      caseText: 'Voeg knop toe Bereken het te storten bedrag per maand Je wil een elektrische fiets van €8000 kopen binnen 5 jaar. Je start met een spaarsaldo van €500. Dit geld staat op een spaarrekening met een interest van 1,4% per jaar. Elke maand stort je een vast bedrag op je rekening.',
+      options: ['€ 112.30', '€ 120.20', '€ 128.60', '€ 135.50'],
+      answer: 1,
+      explain: 'Bereken het benodigde maandbedrag op basis van startkapitaal, rente en termijn.',
+      extraText: 'Via de volgende link kan je verder aan de slag met voorbeelden uit je eigen leefwereld: https://www.wikifin.be/nl/spaarcalculator'
     },
     quiz: [
-      {
-        question: 'Wat helpt het meest om een spaardoel te halen?',
-        answers: ['Geen plan maken', 'Wekelijks bijhouden', 'Alles tegelijk kopen', 'Spaargeld uitlenen aan vrienden'],
-        correct: 1
-      },
-      {
-        question: 'Wat is een goed spaardoel?',
-        answers: ['Iets vaags', 'Iets meetbaar met bedrag en datum', 'Iets zonder deadline', 'Iets dat anderen kiezen'],
-        correct: 1
-      }
+      { question: 'Wat helpt het meest om een spaardoel te halen?', answers: ['Geen plan maken', 'Wekelijks bijhouden', 'Alles tegelijk kopen', 'Spaargeld uitlenen aan vrienden'], correct: 1 },
+      { question: 'Wat is een goed spaardoel?', answers: ['Iets vaags', 'Iets meetbaar met bedrag en datum', 'Iets zonder deadline', 'Iets dat anderen kiezen'], correct: 1 }
     ],
-    videoUrl: 'https://www.youtube.com/embed/L9WQjCccv8k',
-    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school',
+    videoUrl: 'https://www.youtube.com/watch?v=IDeeP51wBxE',
+    simulationUrl: 'https://www.wikifin.be/nl/sparen-en-beleggen/vergelijkingstool-spaarrekeningen?savingssim=default',
+    simulationLabel: 'Open spaarcalculator',
+    simulationTextTop: 'Elke spaarrekening is anders. Daarom heeft Wikifin een handige vergelijkingstool ontwikkeld.',
+    simulationTextBottom: 'Neem 5 minuten de tijd om deze tool te leren kennen. Experimenteer met je startbedrag, je maandelijkse storting en je spaarperiode. Vergelijk daarna de verschillende spaarrekeningen die banken in jouw geval aanbieden en bekijk hoe groot het verschil in eindbedrag kan zijn.',
+    simulationLinks: [
+
+    ],
     resources: [
-      { title: 'Spaardoelen stellen', url: 'https://www.wikifin.be/nl/lesplein/sparen' },
-      { title: 'Automatisch sparen', url: 'https://www.wikifin.be/nl/lesplein/automatisch-sparen' }
+      { title: 'Vergelijk spaarrekeningen (Wikifin)', url: 'https://www.wikifin.be/nl/sparen-en-beleggen/vergelijkingstool-spaarrekeningen?savingssim=default' },
+      { title: 'Spaarcalculator', url: 'https://www.wikifin.be/nl/spaarcalculator' }
     ]
   },
   {
     id: 'beleggen',
     icon: '📈',
     title: 'Beleggen',
-    subtitle: 'Maak kennis met risico, rendement en lange termijn denken.',
+    subtitle: 'Risico, rendement en spreiden van investeringen.',
     theory: [
-      'Beleggen is geld laten groeien op lange termijn, met kans op winst en verlies.',
-      'Spreiden over meerdere investeringen verlaagt risico.',
-      'Beleg alleen geld dat je niet meteen nodig hebt.'
+      'Beleggen betekent dat je geld investeert met de verwachting dat het op lange termijn meer waard wordt.',
+      'In tegenstelling tot sparen kan de waarde ook dalen: er is risico.',
+      'Spreid je beleggingen om het risico te beperken en beleg alleen geld dat je kunt missen.'
     ],
     practice: {
-      caseText: 'Twee leerlingen beleggen elk 20 euro per maand. Wie bouwt meer op: 1 jaar of 5 jaar?',
-      options: ['1 jaar', '5 jaar', 'Evenveel', 'Onmogelijk te weten'],
+      caseText: 'Je belegt €2.000: 60% technologiefonds (+12%), 40% energiebedrijf (-4%). Wat is de waarde na 1 jaar?',
+      options: ['€2.012', '€2.112', '€1.900', '€2.200'],
       answer: 1,
-      explain: 'Langer beleggen geeft meer tijd voor mogelijke groei.'
+      explain: '60% van 2000 groeit 12% en 40% daalt 4% — eindwaarde ≈ €2.112.'
     },
     quiz: [
-      {
-        question: 'Wat betekent risico bij beleggen?',
-        answers: ['Dat je nooit verliest', 'Dat waarde kan stijgen of dalen', 'Dat je altijd winst hebt', 'Dat sparen verboden is'],
-        correct: 1
-      },
-      {
-        question: 'Wat is spreiden?',
-        answers: ['Alles in een aandeel', 'Investeren in meerdere opties', 'Niet meer investeren', 'Alleen cash bewaren'],
-        correct: 1
-      }
+      { question: 'Wat is spreiden?', answers: ['Alles in één aandeel', 'Investeren in meerdere opties', 'Niet meer investeren', 'Alleen cash bewaren'], correct: 1 },
+      { question: 'Waarom spreiden?', answers: ['Meer risico', 'Risico beperken', 'Geen verschil', 'Meer kosten'], correct: 1 }
     ],
-    videoUrl: 'https://www.youtube.com/embed/FLKJ9Qz5u5w',
-    simulationUrl: 'https://www.wikifin.be/nl/wikifin-school/online-oefenen-dankzij-financial-literacy-school',
+    videoUrl: 'https://www.youtube.com/embed/-Ehhche0t08',
+    simulationUrl: 'https://smgiq.org/',
+    simulationLabel: 'Open beleggingssimulatie',
+    simulationTextTop: 'Volg de online beleggingssimulatie en lees daarna extra uitleg over spreiden, risico en rendement.',
+    simulationTextBottom: '',
+    simulationLinks: [
+      { title: 'Online beleggingssimulatie', url: 'https://smgiq.org/' },
+      { title: 'Club Beleg', url: 'https://clubbeleg.be/' },
+      { title: 'Wikifin: sparen en beleggen', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' }
+    ],
     resources: [
-      { title: 'Beleggen voor beginners', url: 'https://www.wikifin.be/nl/lesplein/beleggen' },
-      { title: 'Risico en rendement', url: 'https://www.wikifin.be/nl/lesplein/risico-en-rendement' }
+      { title: 'ClubBeleg (Febelfin)', url: 'https://clubbeleg.be/' },
+      { title: 'Wikifin: sparen en beleggen', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' }
     ]
   }
 ];
@@ -395,19 +396,31 @@ function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores })
 
       <section className="content-card">
         <h2>Korte uitleg</h2>
-        <ul>
-          {topic.theory.map((point) => (
-            <li key={point}>{point}</li>
+        <ul className="theory-list">
+          {topic.theory.map((point, index) => (
+            <li key={point} className={index === 0 ? 'no-marker' : ''}>
+              {point}
+            </li>
           ))}
         </ul>
       </section>
 
       <section className="content-card">
         <h2>Oefening</h2>
-        <p>Speel het budgetspel van Wikifin en werk minstens 10 minuten aan je keuzes.</p>
+        {topic.simulationTextTop && <p className="simulation-copy simulation-copy-top">{topic.simulationTextTop}</p>}
         <a className="btn btn-primary" href={topic.simulationUrl} target="_blank" rel="noreferrer">
-          Open simulatie
+          {topic.simulationLabel ?? 'Open simulatie'}
         </a>
+        {topic.simulationLinks && (
+          <div className="simulation-buttons">
+            {topic.simulationLinks.map((link) => (
+              <a key={link.title} className="btn btn-secondary simulation-button" href={link.url} target="_blank" rel="noreferrer">
+                {link.title}
+              </a>
+            ))}
+          </div>
+        )}
+        {topic.simulationTextBottom && <p className="simulation-copy simulation-copy-bottom">{topic.simulationTextBottom}</p>}
       </section>
 
       <section className="content-card">
@@ -431,6 +444,7 @@ function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores })
             {topic.practice.explain}
           </p>
         )}
+        {topic.id === 'sparen' && topic.practice.extraText && <p className="simulation-copy">{topic.practice.extraText}</p>}
       </section>
 
       <section className="content-card">
@@ -472,7 +486,7 @@ function TopicPage({ completedSet, setCompletedSet, quizScores, setQuizScores })
       </section>
 
       <section className="content-card resources-card">
-        <h2>📚 Verder lezen</h2>
+        <h2>📚 Extra</h2>
         <ul className="resources-list">
           {topic.resources && topic.resources.map((resource) => (
             <li key={resource.title}>
