@@ -33,8 +33,8 @@ const TOPICS = [
     ],
     resources: [
       { title: 'In deze video vind je extra informatie over het overzicht behouden tussen inkomsten en uitgaven.', url: 'https://www.youtube.com/watch?v=If7c6bhzf0M' },
-      { title: 'Als leerkracht kan je het spel ‘Buget aan zet’ van wikifin implementeren in je les.', url: 'https://www.wikifin.be/nl/budgettool-xl' },
-      { title: 'Om je leerlingen een budget te laten opstellen, kan je gebruikmaken van de Budgettool XL van Wikifin. Via een eenvoudige tekst en duidelijke opdrachten laat je hen zelfstandig aan de slag gaan om een persoonlijk budget op te stellen.', url: 'http://www.wikifin.be/nl/wikifin-school/budget-aan-zet' }
+      { title: 'Als leerkracht kan je het spel ‘Buget aan zet’ van wikifin implementeren in je les.', url: 'http://www.wikifin.be/nl/wikifin-school/budget-aan-zet' },
+      { title: 'Om je leerlingen een budget te laten opstellen, kan je gebruikmaken van de Budgettool XL van Wikifin. Via een eenvoudige tekst en duidelijke opdrachten laat je hen zelfstandig aan de slag gaan om een persoonlijk budget op te stellen.', url: 'https://www.wikifin.be/nl/budgettool-xl' }
     ]
   },
   {
