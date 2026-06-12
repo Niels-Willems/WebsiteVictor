@@ -324,6 +324,44 @@ function HomePage({ completedSet, quizScores, onResetProgress }) {
           ))}
         </ol>
       </section>
+
+      <section className="content-card resources-card">
+        <h2>Extra</h2>
+        <p>
+          Binnen deze tool is een selectie gemaakt van bruikbaar materiaal uit verschillende bronnen. Dit betekent
+          echter niet dat ander materiaal niet geschikt kan zijn.
+        </p>
+        <p>
+          Hieronder vind je een aanvullende lijst met materialen die je kan toevoegen indien gewenst, zodat je een les
+          op maat van je klas kan samenstellen.
+        </p>
+        <p>
+          Ga gerust ook zelf op zoek naar extra inspirerend materiaal om je les verder te verrijken en leuke, passende
+          aanvullingen te doen.
+        </p>
+        <h3>Bronnen</h3>
+        <ul className="resources-list">
+          <li>
+            <a
+              href="https://www.wikifin.be/nl/wikifin-school/lesmateriaal?s=&sort_by=search_api_relevance&f[0]=fa_tm_type:352"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Een reeks extra materialen van Wikifin.
+            </a>
+          </li>
+          <li>
+            <a href="https://financiele-geletterdheid.org/" target="_blank" rel="noreferrer">
+              Verschillende tools, simulaties van de KULeuven met het project ‘Financial Literacy @ School ‘.
+            </a>
+          </li>
+          <li>
+            <a href={`${import.meta.env.BASE_URL}Werkblad%20financi%C3%ABle%20geletterdheid.pdf`} target="_blank" rel="noreferrer">
+              Werkbundel rond financiële geletterdheid.
+            </a>
+          </li>
+        </ul>
+      </section>
     </main>
   );
 }
