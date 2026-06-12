@@ -145,7 +145,7 @@ const TOPICS = [
       'Vraag jezelf af: begrijp ik het, kan ik verlies aan, en kan ik het geld lang missen?'
     ],
     theoryOutro:
-      'Beleggen kan best complex lijken. Gelukkig heeft Febelfin een reeks toegankelijke video\'s ontwikkeld waarin Kamal Kharmach de basisprincipes van beleggen op een heldere en vaak humoristische manier uitlegt. De video\'s maken moeilijke begrippen begrijpelijk en tonen dat je geen expert hoeft te zijn om meer te leren over beleggen. Bekijk de video\'s via de volgende link:',
+      'Beleggen kan best complex lijken. Gelukkig heeft **Febelfin** een reeks toegankelijke video\'s ontwikkeld waarin **Kamal Kharmach** de **basisprincipes van beleggen** op een heldere en vaak humoristische manier uitlegt. De **video\'s** maken moeilijke begrippen begrijpelijk en tonen dat je geen expert hoeft te zijn om meer te leren over beleggen. **Bekijk de video\'s** via de volgende link:',
     theoryOutroLink: 'https://www.youtube.com/watch?v=-Ehhche0t08&list=PLb-yHoQ5fKK_X4r-apJVQCxQpYF9-VQoD',
     practiceMode: 'document',
     practiceIntro: 'Bereken hoeveel je aandelen waard zullen zijn in de volgende casus. Duid hierna het juiste antwoord aan.',
