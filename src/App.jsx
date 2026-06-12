@@ -73,9 +73,9 @@ const TOPICS = [
     simulationCaseText:
       'Je bent **gehuwd of wettelijk samenwonend** en werkt als **bediende** met een **brutoloon van €3.200 per maand**. Je partner heeft een beroepsinkomen. In je job krijg je enkele extra voordelen zoals een transportvergoeding, groepsverzekering, firmawagen en maaltijdcheques. Daarnaast zijn er geen personen ten laste en geen extra andere netto-inhoudingen of kosten.',
     resources: [
-      { title: 'Via de volgende kink vind je veel laagdrempelige informatie over werken, geld verdienen en belastingen:', url: 'https://mijngeldenik.be/category:werken' },
-      { title: 'Via volgende link vind je aanvullend op de algemene info, extra informatie over de specifieke onderdelen van belastingen en de berekening van je loon.:', url: 'https://www.wikifin.be/nl/belasting-werk-en-inkomen' },
-      { title: 'In de volgende video wordt een meer theoretische benadering van het belastbaar inkomen gegeven:', url: 'https://www.youtube.com/watch?v=dRUwcIyVEwg&t=263s' }
+      { title: 'Via de volgende kink vind je veel laagdrempelige informatie over werken, geld verdienen en belastingen.', url: 'https://mijngeldenik.be/category:werken' },
+      { title: 'Via volgende link vind je aanvullend op de algemene info, extra informatie over de specifieke onderdelen van belastingen en de berekening van je loon.', url: 'https://www.wikifin.be/nl/belasting-werk-en-inkomen' },
+      { title: 'In de volgende video wordt een meer theoretische benadering van het belastbaar inkomen gegeven.', url: 'https://www.youtube.com/watch?v=dRUwcIyVEwg&t=263s' }
     ]
   },
   {
@@ -125,7 +125,7 @@ const TOPICS = [
     simulationFollowup:
       'Neem **5 minuten de tijd** om deze tool te leren kennen. **Experimenteer** met je **startbedrag**, je **maandelijkse storting** en je **spaarperiode**. **Vergelijk** daarna de **verschillende spaarrekeningen** die banken in jouw geval aanbieden en bekijk hoe groot het verschil in eindbedrag kan zijn.',
     resources: [
-      { title: 'Via de volgende kink vind je extra informatie over sparen, de verschillende aspecten staan onder elkaar genoteerd:', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' },
+      { title: 'Via de volgende kink vind je extra informatie over sparen, de verschillende aspecten staan onder elkaar genoteerd.', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' },
       { title: 'Via de volgende link vind je aanvullende informatie over sparen, deze staat samen met beleggen. Dit wordt in deze weergave als een apart onderdeel besproken.', url: 'https://mijngeldenik.be/category:sparen-en-beleggen' },
       { title: 'Een meer uitgebreide weergave is ook mogelijk. Deze tool is in het Engels en toont de interesten per maand, met daarnaast een duidelijke grafische weergave van de groei van je spaargeld.', url: 'https://shortcut.ai/share/f6cf20fc-e1cb-411d-9706-cdd77524dd5b' }
     ]
@@ -170,9 +170,9 @@ const TOPICS = [
       { title: 'Online beleggingssimulatie', url: 'https://smgiq.org/' }
     ],
     resources: [
-      { title: 'ClubBeleg (Febelfin)', url: 'https://clubbeleg.be/' },
-      { title: 'Wikifin: sparen en beleggen', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' },
-      { title: 'Aanvullend op deze informatie vind je aanvullend op mijngeldenik zeer toegankelijke info', url: 'https://mijngeldenik.be/category:sparen-en-beleggen' }
+      { title: 'Via Club beleg vind je aanvullend een reeks informatie, deze webpagina werd ontworpen door Febelfin.', url: 'https://clubbeleg.be/' },
+      { title: 'Via Wikifin vind je een reeks antwoorden op verschillende vragen over beleggen. Deze volgen onder de rubriek sparen.', url: 'https://www.wikifin.be/nl/sparen-en-beleggen' },
+      { title: 'Aanvullend op deze informatie vind je aanvullend op mijngeldenik zeer toegankelijke info.', url: 'https://mijngeldenik.be/category:sparen-en-beleggen' }
     ]
   }
 ];
