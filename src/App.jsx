@@ -68,13 +68,13 @@ const TOPICS = [
       { title: 'Loonbrief student', url: 'https://www.wikifin.be/nl/loonbrief-studenten' },
       { title: 'Bereken je nettoloon', url: 'https://www.jobat.be/nl/art/hoeveel-blijft-er-van-mijn-brutoloon-netto-over?cu=1' }
     ],
-    simulationFollowup: 'Ga aan de slag met de casus en bereken je nettoloon via volgende link:',
+    simulationFollowup: 'Ga aan de slag met de casus en bereken je nettoloon via de link "Bereken je nettoloon":',
     simulationCaseTitle: '💼 Casus: bereken je nettoloon',
     simulationCaseText:
       'Je bent **gehuwd of wettelijk samenwonend** en werkt als **bediende** met een **brutoloon van €3.200 per maand**. Je partner heeft een beroepsinkomen. In je job krijg je enkele extra voordelen zoals een transportvergoeding, groepsverzekering, firmawagen en maaltijdcheques. Daarnaast zijn er geen personen ten laste en geen extra andere netto-inhoudingen of kosten.',
     resources: [
       { title: 'Via de volgende kink vind je veel laagdrempelige informatie over werken, geld verdienen en belastingen:', url: 'https://mijngeldenik.be/category:werken' },
-      { title: 'Via volgende link vind je aanvullend op de algemene info, extra informatie over de specifieke onderdelen van belastingen en de berekening van je loon.:', url: 'https://www.wikifin.be/nl/belasting-werk-eninkomen?_gl=1*1a4k38i*_up*MQ..*_gs*MQ..' },
+      { title: 'Via volgende link vind je aanvullend op de algemene info, extra informatie over de specifieke onderdelen van belastingen en de berekening van je loon.:', url: 'https://www.wikifin.be/nl/belasting-werk-en-inkomen' },
       { title: 'In de volgende video wordt een meer theoretische benadering van het belastbaar inkomen gegeven:', url: 'https://www.youtube.com/watch?v=dRUwcIyVEwg&t=263s' }
     ]
   },
@@ -119,7 +119,7 @@ const TOPICS = [
     simulationButtons: [
       {
         title: 'Vergelijk spaarrekeningen',
-        url: 'https://www.wikifin.be/nl/sparen-en-beleggen/vergelijkingstoolspaarrekeningen?savingssim=default'
+        url: 'https://www.wikifin.be/nl/sparen-en-beleggen/vergelijkingstool-spaarrekeningen'
       }
     ],
     simulationFollowup:
